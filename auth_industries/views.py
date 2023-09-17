@@ -16,7 +16,7 @@ def indexAuth(request):
     
     if user:
         django_login(request, user)
-        return HttpResponseRedirect('/home/')
+        return HttpResponseRedirect('/home/') 
     
     return render(request, 'index.html')
 
