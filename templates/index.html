@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>vergueiro.industries</title>
+</head>
+
+<body>
+    <div id="container_general">
+
+        <div id="box_left_side">
+            <div id="banner">
+                <img src="{% static 'img/banner.png' %}" alt="banner" >
+            </div>
+
+        </div>
+
+        <div id="box_right_side">
+            
+            <div id="container_id">
+                <div id="logo">
+                    <img src="{% static 'img/logo.png' %}" alt="logo" width="100">
+                </div>
+                <form action="/login/" method="post">
+                    {% csrf_token %}
+                    <div id="login">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="input_username">
+                    </div>
+                    <div id="password">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="input_password">
+                    </div>
+                    <div id="enter">
+                        <button type="submit" id="button_enter">Enter</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

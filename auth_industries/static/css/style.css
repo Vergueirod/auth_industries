@@ -1,0 +1,87 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+#container_general{
+    background-color: brown;
+    display: flex;
+    justify-content:space-between;
+    height: 100vh ;
+}
+
+#box_left_side{
+    flex: 1;
+    background-color: #152039;
+    padding-top: 100px;
+}
+
+#box_right_side{
+    flex: 2;
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container_id{
+    height: 300px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    justify-content: center;
+    align-items: center;
+    /* border: solid 2px #0f0e0d ;
+    border-radius: 20px; */
+}
+
+#logo{
+    margin-bottom: 20px;
+
+}
+
+#login{
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#password{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#input_username, #input_password{
+    width: 300px;
+    border: solid 1px #585858 ;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#enter{
+    display: flex;
+    justify-content: center;
+}
+
+#button_enter{
+    width: 150px;
+    background-color: #152039;
+    color: #FFF;
+    border: solid 2px #000;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#button_enter:hover{
+    width: 150px;
+    background-color: #314980;
+    color: #FFF;
+    border: solid 2px #314980;
+    border-radius: 10px;    
+    padding: 5px;
+}
