@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login as django_login
+from django.contrib.auth import authenticate, login as django_login, logout as django_logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -20,5 +21,11 @@ def indexAuth(request):
     
     return render(request, 'index.html')
 
+@login_required(login_url='/login')
+def logout(request):
+    django_logout(request)
+    return HttpResponseRedirect('/login/')
+
+@login_required(login_url='/login')
 def home(request):
     return render(request, 'home.html')
