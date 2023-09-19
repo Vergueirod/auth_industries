@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.contrib.auth.decorators import login_required
-from .models import Address
+from .models import Address, STATES_CHOICES
 
 # Create your views here.
 
@@ -35,3 +35,19 @@ def home(request):
 def address_list(request):
     addresses = Address.objects.all()
     return render(request, 'address/list.html', {'addresses':addresses})
+
+def address_create(request):
+    if request.method == 'GET':
+        states = STATES_CHOICES
+        return render(request, 'address/create.html', {'states':states})
+    
+    Address.objects.create(
+        address = request.POST.get('address'),
+        address_complement = request.POST.get('address_complement'),
+        city = request.POST.get('city'),
+        state = request.POST.get('state'),
+        country = request.POST.get('country'),
+        user = request.user
+    )
+
+    return HttpResponseRedirect('/addresses/')
