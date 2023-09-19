@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adress list</title>
+</head>
+<body>
+    
+        <div class="container">
+            <h3>Address list</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Endereço</th>
+                        <th>Complemento</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for address in addresses %}
+                        <tr>
+                            <td>{{ address.id }}</td>
+                            <td>{{ address.address }}</td>
+                            <td>{{ address.address_complement }}</td>
+                            <td>{{ address.city }}</td>
+                            <td>{{ address.state }}</td>
+                            <td>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+</body>
+</html>

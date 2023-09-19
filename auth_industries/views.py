@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.contrib.auth.decorators import login_required
+from .models import Address
 
 # Create your views here.
 
@@ -29,3 +30,8 @@ def logout(request):
 @login_required(login_url='/login')
 def home(request):
     return render(request, 'home.html')
+
+@login_required(login_url='/login')
+def address_list(request):
+    addresses = Address.objects.all()
+    return render(request, 'address/list.html', {'addresses':addresses})
