@@ -20,6 +20,8 @@ from auth_industries import views
 #from django.conf import settings
 from django.conf.urls.static import static
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.indexAuth),
@@ -27,4 +29,5 @@ urlpatterns = [
     path('logout/', views.logout),
     path('addresses/', views.address_list),
     path('addresses/create', views.address_create),
-]
+    path('', views.re_direct_login),
+]   

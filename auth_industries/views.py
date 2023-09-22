@@ -3,6 +3,9 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.contrib.auth.decorators import login_required
 from .models import Address, STATES_CHOICES
+from django.shortcuts import redirect
+
+
 
 # Create your views here.
 
@@ -51,3 +54,7 @@ def address_create(request):
     )
 
     return HttpResponseRedirect('/addresses/')
+
+def re_direct_login(request):
+    return redirect('/login/')
+
