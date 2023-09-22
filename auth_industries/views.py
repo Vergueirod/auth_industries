@@ -3,9 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.contrib.auth.decorators import login_required
 from .models import Address, STATES_CHOICES
-from django.shortcuts import redirect
-
-
+from django.shortcuts import redirect, get_object_or_404
 
 # Create your views here.
 
@@ -78,3 +76,14 @@ def re_direct_login(request):
     return redirect('/login/')
 
 
+@login_required(login_url='/login')
+def address_destroy(request, id):
+    address = get_object_or_404( Address, id=id)
+
+    if request.method == 'GET':
+        return render(request, 'address/destroy.html', {'address':address})
+    address.delete()
+    return HttpResponseRedirect('/addresses/')
+    
+    
+    

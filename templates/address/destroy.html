@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmar Exclusão</title>
+</head>
+<body>
+    <h1>Tem certeza de que deseja excluir este endereço?</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Confirmar Exclusão">
+    </form>
+</body>
+</html>

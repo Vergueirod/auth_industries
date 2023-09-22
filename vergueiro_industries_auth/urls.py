@@ -30,5 +30,6 @@ urlpatterns = [
     path('addresses/', views.address_list),
     path('addresses/create/', views.address_create),
     path('addresses/<int:id>/update/', views.address_update),
+    path('addresses/<int:id>/destroy/', views.address_destroy),
     path('', views.re_direct_login),
 ]   
