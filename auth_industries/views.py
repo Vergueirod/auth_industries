@@ -39,6 +39,7 @@ def address_list(request):
     addresses = Address.objects.all()
     return render(request, 'address/list.html', {'addresses':addresses})
 
+@login_required(login_url='/login')
 def address_create(request):
     if request.method == 'GET':
         states = STATES_CHOICES
@@ -55,6 +56,25 @@ def address_create(request):
 
     return HttpResponseRedirect('/addresses/')
 
+@login_required(login_url='/login')
+def address_update(request, id):
+    address = Address.objects.get(id=id)
+    if request.method == 'GET':
+        states = STATES_CHOICES
+        return render(request, 'address/update.html', {'states':states, 'address':address})
+    
+    address.address = request.POST.get('address'),
+    address.address_complement = request.POST.get('address_complement'),
+    address.city = request.POST.get('city'),
+    address.state = request.POST.get('state'),
+    address.country = request.POST.get('country'),
+    address.user = request.user
+    
+    address.save()
+
+    return HttpResponseRedirect('/addresses/')
+
 def re_direct_login(request):
     return redirect('/login/')
+
 

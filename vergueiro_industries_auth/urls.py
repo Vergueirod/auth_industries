@@ -28,6 +28,7 @@ urlpatterns = [
     path('home/', views.home),
     path('logout/', views.logout),
     path('addresses/', views.address_list),
-    path('addresses/create', views.address_create),
+    path('addresses/create/', views.address_create),
+    path('addresses/<int:id>/update/', views.address_update),
     path('', views.re_direct_login),
 ]   
